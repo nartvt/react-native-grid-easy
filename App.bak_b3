@@ -1,0 +1,94 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
+
+import React from 'react';
+import {
+  SafeAreaView, ScrollView, View, Text, StatusBar, Image, Button, TouchableOpacity, TextInput,
+  StyleSheet,
+  Dimensions
+} from 'react-native';
+
+const widthDevice = Dimensions.get('window').width;
+const heightDevice = Dimensions.get('window').height;
+
+const { container, bgDark, setBackGround, setHeight, setWidth } = StyleSheet.create({
+  setHeight: (num) => {
+    return (heightDevice * num) / 100;
+  },
+  setWidth: (num) => {
+    return (widthDevice * num) / 100;
+  },
+  container: {
+    flex: 1,// flex  1 chiem 1 phan man hinh so voi cha (man hinh)
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  bgDark: {
+    backgroundColor: '#000'
+  },
+  setBackGround: (color) => { return { backgroundColor: color } },
+  flexContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+
+  },
+  flexItem: {
+    backgroundColor: '#fff'
+  }
+})
+
+
+const App = () => {
+  return (
+    <>
+      <View style={{ flex: 1 }}>
+        <Text style={{
+          paddingLeft: 20,
+          paddingTop: 20,
+          fontSize: 30,
+          fontWeight: 'bold'
+        }}>Nike</Text>
+      </View>
+      <View style={{ flex: 9, flexDirection: 'column' }}>
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          <View style={{ flex: 1, backgroundColor: 'black',borderRadius:15, marginLeft: 15  }}>
+            <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection:'row', alignItems: 'flex-start',padding: 15 }}>
+              <Image style={{ width: 30, height: 30 }} resizeMode='contain' source={require('./src/assets/img/heart.png')} />
+              {/* <Text>123</Text> */}
+            </View>
+            <View style={{ flex: 4,flexDirection:'row', justifyContent:'center' }}>
+              <Image style={{width:150, height: 75}}  source={require('./src/assets/img/shoe1.jpg')} />
+            </View>
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start' }}>
+              <Text style={{color:'red', fontSize:20, marginLeft:15}}>Giay Nike 01</Text>
+
+            </View>
+          </View>
+          <View style={{ flex: 1, width: setWidth(50), backgroundColor: 'green' }}>
+            {/* <Image source={require('./src/assets/img/heart.png')}/> */}
+            <Text>lorem10</Text>
+          </View>
+        </View>
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          <View style={{ flex: 1, width: setWidth(50), backgroundColor: 'yellow' }}>
+            {/* <Image source={require('./src/assets/img/heart.png')}/> */}
+            <Text>123</Text>
+          </View>
+          <View style={{ flex: 1, width: setWidth(50), backgroundColor: 'black' }}>
+            {/* <Image source={require('./src/assets/img/heart.png')}/> */}
+            <Text style={{ color: 'white' }}>lorem10</Text>
+          </View>
+        </View>
+      </View>
+    </>
+  )
+}
+
+export default App;
